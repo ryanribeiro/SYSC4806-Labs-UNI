@@ -1,7 +1,14 @@
+import javax.persistence.*;
 import java.util.*;
 
+@Entity
 public class AddressBook {
-    private ArrayList<BuddyInfo> buddiesList;
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<BuddyInfo> buddiesList;
 
     public AddressBook() {
         this.buddiesList = new ArrayList<BuddyInfo>();
@@ -20,7 +27,7 @@ public class AddressBook {
         addressBook.printAddressBook();
     }
 
-    public ArrayList<BuddyInfo> getBuddiesList() {
+    public List<BuddyInfo> getBuddiesList() {
         return this.buddiesList;
     }
 
@@ -37,6 +44,16 @@ public class AddressBook {
     }
 
     public void printAddressBook() {
-        this.getBuddiesList().forEach(value->System.out.println(value));
+        for (BuddyInfo buddy : this.getBuddiesList()) {
+            System.out.println(buddy.toString());
+        }
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

@@ -1,8 +1,12 @@
 import lombok.*;
 
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString @EqualsAndHashCode
+@NoArgsConstructor @AllArgsConstructor
+@ToString @EqualsAndHashCode
+@Getter @Setter
 public class BuddyInfo {
     private String name;
     private String address;
     private String phoneNumber;
 }
+
+

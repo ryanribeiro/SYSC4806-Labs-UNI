@@ -38,14 +38,14 @@ public class BuddyInfoTest {
         BuddyInfo fakeBuddy = new BuddyInfo("FAKE", "Klondike", "555-555-5555");
         BuddyInfo goodBuddy = new BuddyInfo("Ryan", "Klondike", "555-555-5555");
 
-        assertEquals("Buddies are not the same, should be false", false, this.buddy.isEqual(fakeBuddy));
-        assertEquals("Buddies are the same, should be true", true, this.buddy.isEqual(goodBuddy));
+        assertEquals("Buddies are not the same, should be false", false, this.buddy.equals(fakeBuddy));
+        assertEquals("Buddies are the same, should be true", true, this.buddy.equals(goodBuddy));
     }
 
     @Test
     public void testToString() {
         String printout = this.buddy.toString();
-        String expected = "Name: Ryan Address: Klondike Phonenumber: 555-555-5555";
+        String expected = "BuddyInfo(name=Ryan, address=Klondike, phoneNumber=555-555-5555)";
 
         assertEquals("Strings should match", expected, printout);
     }

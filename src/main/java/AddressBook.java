@@ -1,27 +1,21 @@
 import java.util.*;
+import lombok.*;
 
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString @EqualsAndHashCode
 public class AddressBook {
-    private ArrayList<BuddyInfo> buddiesList;
-
-    public AddressBook() {
-        this.buddiesList = new ArrayList<BuddyInfo>();
-    }
+    private ArrayList<BuddyInfo> buddiesList = new ArrayList<>();
 
     public static void main(String[] args) {
         AddressBook addressBook = new AddressBook();
-        BuddyInfo buddy1 = new BuddyInfo("Ryan", "Klondike", "555-555-5555");
-        BuddyInfo buddy2 = new BuddyInfo("John", "Jail", "123-456-7890");
-        BuddyInfo buddy3 = new BuddyInfo("Jane", "Main Street", "1-800-555-5555");
+        BuddyInfo buddy1 = new BuddyInfo("Jumpy Jack", "Up the Hill", "555-555-5550");
+        BuddyInfo buddy2 = new BuddyInfo("Jolly Jill", "Up the Hill ", "555-555-5551");
+        BuddyInfo buddy3 = new BuddyInfo("Jealous Jane", "Bottom of the Hill", "555-555-5552");
 
         addressBook.addBuddy(buddy1);
         addressBook.addBuddy(buddy2);
         addressBook.addBuddy(buddy3);
 
         addressBook.printAddressBook();
-    }
-
-    public ArrayList<BuddyInfo> getBuddiesList() {
-        return this.buddiesList;
     }
 
     public void addBuddy(BuddyInfo buddy) {
@@ -37,6 +31,8 @@ public class AddressBook {
     }
 
     public void printAddressBook() {
-        this.getBuddiesList().forEach(value->System.out.println(value));
+        for (BuddyInfo buddy : this.getBuddiesList()) {
+            System.out.println(buddy.toString());
+        }
     }
 }

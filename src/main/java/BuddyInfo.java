@@ -1,10 +1,16 @@
 public class BuddyInfo {
-    private String name, address, phoneNumber;
+    private String name;
+    private String address;
+    private String phoneNumber;
+
+    public BuddyInfo () {
+        this("Temp", "Temp", "Temp");
+    }
 
     public BuddyInfo (String name, String address, String phoneNumber) {
-        this.setName(name);
-        this.setAddress(address);
-        this.setPhoneNumber(phoneNumber);
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getName() {

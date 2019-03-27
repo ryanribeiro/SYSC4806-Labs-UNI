@@ -1,4 +1,4 @@
-package view;
+package lab4.view;
 
 import javax.swing.*;
 import java.awt.*;

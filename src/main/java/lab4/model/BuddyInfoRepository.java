@@ -1,6 +1,5 @@
-package model;
+package lab4.model;
 
-import model.BuddyInfo;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package model;
+package lab4.model;
 
 import javax.persistence.*;
 

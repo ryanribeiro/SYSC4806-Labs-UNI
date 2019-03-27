@@ -1,5 +1,7 @@
-package model;
+package lab4;
 
+import lab4.model.BuddyInfo;
+import lab4.model.BuddyInfoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

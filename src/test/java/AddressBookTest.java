@@ -1,5 +1,5 @@
-import model.AddressBook;
-import model.BuddyInfo;
+import lab4.model.AddressBook;
+import lab4.model.BuddyInfo;
 
 import static org.junit.Assert.*;
 

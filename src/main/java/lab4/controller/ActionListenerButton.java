@@ -1,4 +1,4 @@
-package controller;
+package lab4.controller;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;

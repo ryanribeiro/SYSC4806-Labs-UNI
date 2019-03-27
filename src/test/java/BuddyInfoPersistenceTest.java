@@ -1,4 +1,4 @@
-import model.BuddyInfo;
+import lab4.model.BuddyInfo;
 import org.junit.Test;
 
 import javax.persistence.*;

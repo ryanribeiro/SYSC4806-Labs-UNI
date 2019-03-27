@@ -2,7 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
         "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-    <bean id="mainFrame" class="view.MainFrame" init-method="init">
+    <bean id="mainFrame" class="lab4.view.MainFrame" init-method="init">
         <property name="contentPane">
             <ref bean="mainPanel"/>
         </property>
@@ -10,7 +10,7 @@
             <value>Address Book</value>
         </property>
     </bean>
-    <bean id="mainPanel" class="view.BoxLayoutPanel" init-method="init">
+    <bean id="mainPanel" class="lab4.view.BoxLayoutPanel" init-method="init">
         <property name="axis">
             <value>1</value>
         </property>
@@ -31,7 +31,7 @@
             <ref bean="addressBook"/>
         </property>
     </bean>
-    <bean id="addressBook" class="model.AddressBook">
+    <bean id="addressBook" class="lab4.model.AddressBook">
         <constructor-arg>
             <ref bean="buddiesList"/>
         </constructor-arg>
@@ -45,7 +45,7 @@
             </list>
         </constructor-arg>
     </bean>
-    <bean id="buddy1" class="model.BuddyInfo">
+    <bean id="buddy1" class="lab4.model.BuddyInfo">
         <constructor-arg>
             <value>Ryan</value>
         </constructor-arg>
@@ -56,7 +56,7 @@
             <value>555-555-5555</value>
         </constructor-arg>
     </bean>
-    <bean id="buddy2" class="model.BuddyInfo">
+    <bean id="buddy2" class="lab4.model.BuddyInfo">
         <constructor-arg>
             <value>John</value>
         </constructor-arg>
@@ -67,7 +67,7 @@
             <value>123-456-7890</value>
         </constructor-arg>
     </bean>
-    <bean id="buddy3" class="model.BuddyInfo">
+    <bean id="buddy3" class="lab4.model.BuddyInfo">
         <constructor-arg>
             <value>Ronald</value>
         </constructor-arg>
@@ -78,7 +78,7 @@
             <value>664-889-7758</value>
         </constructor-arg>
     </bean>
-    <bean id="buttonPanel" class="view.BoxLayoutPanel" init-method="init">
+    <bean id="buttonPanel" class="lab4.view.BoxLayoutPanel" init-method="init">
         <property name="axis">
             <!--  "0" corresponds to BoxLayout.X_AXIS -->
             <value>0</value>
@@ -90,7 +90,7 @@
             </list>
         </property>
     </bean>
-    <bean id="deleteButton" class="controller.ActionListenerButton"
+    <bean id="deleteButton" class="lab4.controller.ActionListenerButton"
           init-method="init">
         <property name="actionListener">
             <ref bean="deleteButtonActionListener"/>
@@ -100,7 +100,7 @@
         </property>
     </bean>
     <bean id="deleteButtonActionListener"
-          class="controller.DeleteButtonActionListener">
+          class="lab4.controller.DeleteButtonActionListener">
         <property name="list">
             <ref bean="buddiesList"/>
         </property>
@@ -108,7 +108,7 @@
             <ref bean="itemTable"/>
         </property>
     </bean>
-    <bean id="addNewButton" class="controller.ActionListenerButton"
+    <bean id="addNewButton" class="lab4.controller.ActionListenerButton"
           init-method="init">
         <property name="actionListener">
             <ref bean="addNewButtonActionListener"/>
@@ -118,7 +118,7 @@
         </property>
     </bean>
     <bean id="addNewButtonActionListener"
-          class="controller.AddNewButtonActionListener">
+          class="lab4.controller.AddNewButtonActionListener">
         <property name="list">
             <ref bean="buddiesList"/>
         </property>

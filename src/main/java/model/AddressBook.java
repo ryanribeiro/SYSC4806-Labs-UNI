@@ -14,7 +14,11 @@ public class AddressBook {
     private List<BuddyInfo> buddiesList;
 
     public AddressBook() {
-        this.buddiesList = new ArrayList<BuddyInfo>();
+        this(new ArrayList<BuddyInfo>());
+    }
+
+    public AddressBook (List<BuddyInfo> buddiesList) {
+        this.buddiesList = buddiesList;
     }
 
     public static void main(String[] args) {

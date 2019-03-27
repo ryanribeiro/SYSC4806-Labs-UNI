@@ -1,8 +1,12 @@
+package model;
+
 import javax.persistence.*;
+import javax.swing.table.AbstractTableModel;
 import java.util.*;
+import java.util.List;
 
 @Entity
-public class AddressBook {
+public class AddressBook extends AbstractTableModel {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -11,7 +15,11 @@ public class AddressBook {
     private List<BuddyInfo> buddiesList;
 
     public AddressBook() {
-        this.buddiesList = new ArrayList<BuddyInfo>();
+        this(new ArrayList<BuddyInfo>());
+    }
+
+    public AddressBook (List<BuddyInfo> buddiesList) {
+        this.buddiesList = buddiesList;
     }
 
     public static void main(String[] args) {
@@ -25,6 +33,10 @@ public class AddressBook {
         addressBook.addBuddy(buddy3);
 
         addressBook.printAddressBook();
+
+        //Lab 3 stuff
+        Launcher launcher = new Launcher();
+        launcher.launch();
     }
 
     public List<BuddyInfo> getBuddiesList() {
@@ -55,5 +67,30 @@ public class AddressBook {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return false;
+    }
+
+    public int getColumnCount() {
+        return 1;
+    }
+
+    public String getColumnName(int column) {
+        return "Buddies";
+    }
+
+    public int getRowCount() {
+        return buddiesList.size();
+    }
+
+    public void setValueAt(Object value,
+                           int rowIndex, int columnIndex) {
+        buddiesList.set(rowIndex, (BuddyInfo) value);
+    }
+
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        return buddiesList.get(rowIndex);
     }
 }

@@ -1,3 +1,5 @@
+import model.AddressBook;
+import model.BuddyInfo;
 import org.junit.Test;
 
 import javax.persistence.*;
@@ -36,7 +38,7 @@ public class AddressBookPersistenceTest {
         System.out.println("List of address books\n--------------------");
 
         for (AddressBook a : results) {
-            System.out.println("(AddressBook id = " + a.getId() + ")");
+            System.out.println("(model.AddressBook id = " + a.getId() + ")");
             List<BuddyInfo> buddiesList = a.getBuddiesList();
             for (BuddyInfo b : buddiesList) {
                 System.out.println(b.getName() + " (id = " + b.getId() + ")");

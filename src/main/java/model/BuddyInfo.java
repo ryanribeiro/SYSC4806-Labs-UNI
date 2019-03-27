@@ -1,17 +1,21 @@
+package model;
+
 import javax.persistence.*;
 
 @Entity
 public class BuddyInfo {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String name, address, phoneNumber;
+    @Id @GeneratedValue
+    private Integer id = null;
+    private String name;
+    private String address;
+    private String phoneNumber;
 
-    public BuddyInfo () {
-        this("TempName", "TempAddress", "TempPhoneNumber");
+    public BuddyInfo(){
+        this("tempName", "tempAddress", "tempPhoneNumber");
     }
 
-    public BuddyInfo (String name, String address, String phoneNumber) {
+    public BuddyInfo(String name, String address, String phoneNumber) {
         this.setName(name);
         this.setAddress(address);
         this.setPhoneNumber(phoneNumber);
@@ -41,11 +45,21 @@ public class BuddyInfo {
         this.phoneNumber = phoneNumber;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Boolean isEqual(BuddyInfo buddy) {
-        if (this.getName().equals(buddy.getName())) {
-            if (this.getAddress().equals(buddy.getAddress())){
-                if (this.getPhoneNumber().equals(buddy.getPhoneNumber())){
-                    return true;
+        if (this.getId().equals(buddy.getId())) {
+            if (this.getName().equals(buddy.getName())) {
+                if (this.getAddress().equals(buddy.getAddress())) {
+                    if (this.getPhoneNumber().equals(buddy.getPhoneNumber())) {
+                        return true;
+                    }
                 }
             }
         }
@@ -55,13 +69,5 @@ public class BuddyInfo {
     @Override
     public String toString() {
         return "Name: " + this.getName() + " Address: " + this.getAddress() + " Phonenumber: " + this.getPhoneNumber();
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

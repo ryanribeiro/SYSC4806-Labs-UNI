@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="mainFrame" class="view.MainFrame" init-method="init">
+        <property name="contentPane">
+            <ref bean="mainPanel"/>
+        </property>
+        <property name="title">
+            <value>Address Book</value>
+        </property>
+    </bean>
+    <bean id="mainPanel" class="view.BoxLayoutPanel" init-method="init">
+        <property name="axis">
+            <value>1</value>
+        </property>
+        <property name="panelComponents">
+            <list>
+                <ref bean="itemScrollPane"/>
+                <ref bean="buttonPanel"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="itemScrollPane" class="javax.swing.JScrollPane">
+        <constructor-arg>
+            <ref bean="itemTable"/>
+        </constructor-arg>
+    </bean>
+    <bean id="itemTable" class="javax.swing.JTable">
+        <property name="model">
+            <ref bean="addressBook"/>
+        </property>
+    </bean>
+    <bean id="addressBook" class="model.AddressBook">
+        <constructor-arg>
+            <ref bean="buddiesList"/>
+        </constructor-arg>
+    </bean>
+    <bean id="buddiesList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="buddy1"/>
+                <ref bean="buddy2"/>
+                <ref bean="buddy3"/>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean id="buddy1" class="model.BuddyInfo">
+        <constructor-arg>
+            <value>Ryan</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>Klondike Road</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>555-555-5555</value>
+        </constructor-arg>
+    </bean>
+    <bean id="buddy2" class="model.BuddyInfo">
+        <constructor-arg>
+            <value>John</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>Jail</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>123-456-7890</value>
+        </constructor-arg>
+    </bean>
+    <bean id="buddy3" class="model.BuddyInfo">
+        <constructor-arg>
+            <value>Ronald</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>Candy Lane</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>664-889-7758</value>
+        </constructor-arg>
+    </bean>
+    <bean id="buttonPanel" class="view.BoxLayoutPanel" init-method="init">
+        <property name="axis">
+            <!--  "0" corresponds to BoxLayout.X_AXIS -->
+            <value>0</value>
+        </property>
+        <property name="panelComponents">
+            <list>
+                <ref bean="deleteButton"/>
+                <ref bean="addNewButton"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="deleteButton" class="controller.ActionListenerButton"
+          init-method="init">
+        <property name="actionListener">
+            <ref bean="deleteButtonActionListener"/>
+        </property>
+        <property name="text">
+            <value>Delete</value>
+        </property>
+    </bean>
+    <bean id="deleteButtonActionListener"
+          class="controller.DeleteButtonActionListener">
+        <property name="list">
+            <ref bean="buddiesList"/>
+        </property>
+        <property name="table">
+            <ref bean="itemTable"/>
+        </property>
+    </bean>
+    <bean id="addNewButton" class="controller.ActionListenerButton"
+          init-method="init">
+        <property name="actionListener">
+            <ref bean="addNewButtonActionListener"/>
+        </property>
+        <property name="text">
+            <value>Add New</value>
+        </property>
+    </bean>
+    <bean id="addNewButtonActionListener"
+          class="controller.AddNewButtonActionListener">
+        <property name="list">
+            <ref bean="buddiesList"/>
+        </property>
+        <property name="table">
+            <ref bean="itemTable"/>
+        </property>
+    </bean>
+</beans>

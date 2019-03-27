@@ -3,7 +3,6 @@ package model;
 import javax.persistence.*;
 import java.util.*;
 import java.util.List;
-import javax.swing.table.AbstractTableModel;
 
 @Entity
 public class AddressBook {
@@ -63,5 +62,30 @@ public class AddressBook {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return true;
+    }
+
+    public int getColumnCount() {
+        return 1;
+    }
+
+    public String getColumnName(int column) {
+        return "Buddies";
+    }
+
+    public int getRowCount() {
+        return buddiesList.size();
+    }
+
+    public void setValueAt(Object value,
+                           int rowIndex, int columnIndex) {
+        buddiesList.set(rowIndex, (BuddyInfo) value);
+    }
+
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        return buddiesList.get(rowIndex);
     }
 }

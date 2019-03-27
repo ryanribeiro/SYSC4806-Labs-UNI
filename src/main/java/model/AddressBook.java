@@ -1,11 +1,12 @@
 package model;
 
 import javax.persistence.*;
+import javax.swing.table.AbstractTableModel;
 import java.util.*;
 import java.util.List;
 
 @Entity
-public class AddressBook {
+public class AddressBook extends AbstractTableModel {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -69,7 +70,7 @@ public class AddressBook {
     }
 
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return true;
+        return false;
     }
 
     public int getColumnCount() {

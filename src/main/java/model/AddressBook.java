@@ -1,5 +1,9 @@
+package model;
+
 import javax.persistence.*;
 import java.util.*;
+import java.util.List;
+import javax.swing.table.AbstractTableModel;
 
 @Entity
 public class AddressBook {
@@ -25,6 +29,10 @@ public class AddressBook {
         addressBook.addBuddy(buddy3);
 
         addressBook.printAddressBook();
+
+        //Lab 3 stuff
+        Launcher launcher = new Launcher();
+        launcher.launch();
     }
 
     public List<BuddyInfo> getBuddiesList() {

@@ -1,3 +1,6 @@
+import model.AddressBook;
+import model.BuddyInfo;
+
 import static org.junit.Assert.*;
 
 public class AddressBookTest {
